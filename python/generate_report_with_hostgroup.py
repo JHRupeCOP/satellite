@@ -8,8 +8,7 @@ from datetime import datetime
 
 # API credentials
 SATELLITE_URL = "https://satellite.conocophillips.net/"
-# USERNAME = "ruppej"
-# PASSWORD = "XXX"
+CERT_PATH = "/etc/pki/tls/certs/ca-bundle.crt"
 
 # Get the current date
 current_date = datetime.now().strftime("%Y-%m-%d")
@@ -20,7 +19,7 @@ OUTPUT_FILE = f"subscribed_hosts_report_{current_date}.csv"
 # Function to fetch data from Satellite
 def fetch_hosts_data():
     url = f"{SATELLITE_URL}/api/v2/hosts?per_page=1000"
-    response = requests.get(url, auth=(USERNAME, PASSWORD), verify=False)
+    response = requests.get(url, auth=(username, password), verify=CERT_PATH)
     if response.status_code == 200:
         return response.json()['results']
     else:
@@ -57,6 +56,10 @@ def generate_report(hosts_data):
 
 # Main function to run the script
 def main():
+    # Prompt for Satellite credentials
+    username = input("Enter your Satellite username: ")
+    password = getpass.getpass("Enter your Satellite password: ")
+
     try:
         # Fetch hosts data
         hosts_data = fetch_hosts_data()
