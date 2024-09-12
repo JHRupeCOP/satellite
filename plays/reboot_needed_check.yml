@@ -1,0 +1,10 @@
+---
+- name: check to see if the server needs a reboot since packages were installed
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: check if reboot is required
+      ansible.builtin.shell:
+        cmd: /usr/bin/dnf needs-restarting --reboothint
+...
