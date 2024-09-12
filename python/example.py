@@ -17,7 +17,7 @@ KATELLO_API = f"https://{SAT}/katello/api/v2/"
 POST_HEADERS = {'content-type': 'application/json'}
 # Default credentials to login to Satellite 6
 USERNAME = "ruppej"
-PASSWORD = "Ultimate4592Sin!"
+PASSWORD = " "
 # Ignore SSL for now
 # SSL_VERIFY = False
 SSL_VERIFY = "/etc/pki/tls/certs/ca-bundle.crt"
