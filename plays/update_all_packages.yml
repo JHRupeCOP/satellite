@@ -1,0 +1,15 @@
+---
+- name: generic update all packages and reboot
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Upgrade all packages
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+
+    - name: Reboot the machine (Wait for 5 min)
+      ansible.builtin.reboot:
+        reboot_timeout: 300
+...

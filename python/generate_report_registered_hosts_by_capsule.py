@@ -7,7 +7,7 @@ from collections import defaultdict
 # SATELLITE_URL = "https://satellite.conocophillips.net/"
 SATELLITE_URL = "https://mariner.conocophillips.net/"
 USERNAME = "ruppej"
-PASSWORD = "Ultimate4592Sin!"
+PASSWORD = ""
 # Or use API_TOKEN instead of username/password
 API_TOKEN = 'VIy_a3K2rauQivMFaeG_AA'
 
