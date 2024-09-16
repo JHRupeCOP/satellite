@@ -11,5 +11,4 @@
     - name: display the facts
       ansible.builtin.debug:
         var: results
-
 ...
