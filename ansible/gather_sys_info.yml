@@ -1,0 +1,20 @@
+---
+- name: Gather system information
+  hosts: all
+  gather_facts: yes
+  tasks:
+
+    - name: Get the boot time
+      ansible.builtin.shell: "who -b | awk '{print $3, $4}'"
+      register: boot_time
+
+    - name: Create the report file
+      ansible.builtin.copy:
+        dest: /tmp/system_report.txt
+        content: |
+          Hostname: {{ ansible_hostname }}
+          Kernel Version: {{ ansible_kernel }}
+          Boot Time: {{ boot_time.stdout }}
+      delegate_to: localhost  # To create it on the local machine
+      run_once: true
+...
