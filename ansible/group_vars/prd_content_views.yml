@@ -1,0 +1,121 @@
+---
+cv_version_count: "3"
+content_views:
+  - name: "COP_UTILS_CV"
+    description: "ConocoPhillips custom tools"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+      - "hana_dev"
+      - "hana_test"
+      - "hana_prod"
+      - "infrastructure"
+      - "sap_appl_dev"
+      - "sap_appl_test"
+      - "sap_appl_prod"
+
+  - name: "EPEL_CV"
+    description: "Extra Packages for Enterprise Linux (EPEL)"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+      - "hana_dev"
+      - "hana_test"
+      - "hana_prod"
+      - "infrastructure"
+      - "sap_appl_dev"
+      - "sap_appl_test"
+      - "sap_appl_prod"
+
+  - name: "EPEL_workstation_CV"
+    description: "EPEL used with workstation builds"
+    environments:
+      - "workstation_dev"
+      - "workstation_prod"
+
+  - name: "GitLab_CV"
+    description: "Filtered GitLab rpms"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+
+  - name: "Microsoft_Products_CV"
+    description: "Microsoft Products all versions"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+      - "hana_dev"
+      - "hana_test"
+      - "hana_prod"
+      - "infrastructure"
+      - "sap_appl_dev"
+      - "sap_appl_test"
+      - "sap_appl_prod"
+
+  - name: "Microsoft_Products_workstation_CV"
+    description: "Microsoft rpms for workstation"
+    environments:
+      - "workstation_dev"
+      - "workstation_prod"
+
+  - name: "RHEL8.6_CV"
+    description: "Red Hat Enterprise Linux (RHEL) version 8.6"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+
+  - name: "RHEL8_CV"
+    description: "Red Hat Enterprise Linux (RHEL) version 8"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+      - "infrastructure"
+      - "sap_appl_dev"
+      - "sap_appl_test"
+      - "sap_appl_prod"
+
+  - name: "RHEL8_HANA_CV"
+    description: Red Hat Enterprise Linux (RHEL) version 8.8 EUS for HANA"
+    environments:
+      - "hana_dev"
+      - "hana_test"
+      - "hana_prod"
+
+  - name: "RHEL8_workstation_CV"
+    description: "Red Hat Enterprise Linux (RHEL) version 8 used for workstations"
+    environments:
+      - "workstation_dev"
+      - "workstation_prod"
+  - name: "RHEL9_CV"
+    description: "Red Hat Enterprise Linux (RHEL) version 9"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+
+  - name: "SatelliteCapsule_CV"
+    description: "Red Hat Satellite Capsule"
+    environments:
+      - "infrastructure"
+
+  - name: "Satellite_Client_CV"
+    description: "Red Hat Satellite Client software"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+      - "hana_dev"
+      - "hana_test"
+      - "hana_prod"
+      - "infrastructure"
+      - "sap_appl_dev"
+      - "sap_appl_test"
+      - "sap_appl_prod"
+
+...

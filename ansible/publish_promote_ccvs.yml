@@ -1,0 +1,27 @@
+---
+- name: Publish and promote composite content views
+  hosts: localhost
+  become: false
+  gather_facts: false
+
+  # ToDo:
+  # - When running extra variables for current_lifecycle_environment & lifecycle_environments need to be included
+  # - not specify composite content view when running; loop instead
+
+  tasks:
+    - name: source development variable file
+      ansible.builtin.include_vars:
+        dir: group_vars
+        files_matching: "{{ global_platform }}_.+[.]yml"
+
+    - name: publish composite content views
+      redhat.satellite.content_view_version:
+        server_url: "{{ server_url }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "{{ sat_validate_certs }}"
+        organization: "{{ organization }}"
+        content_view: "{{ ccv_name }}"
+        current_lifecycle_environment: "{{ curr_lifecycle_env }}"
+        lifecycle_environments: "{{ lifecycle_env }}"
+...

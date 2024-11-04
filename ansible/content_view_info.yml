@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  become: false
+  gather_facts: false
+  vars_files:
+    - group_vars/dev_content_views.yml
+    - group_vars/dev_satellite.yml
+
+  tasks:
+    - name: get content view info
+      redhat.satellite.content_view_info:
+        username: "{{ username }}"
+        password: "{{ password }}"
+        server_url: "{{ server_url }}"
+        name: "{{ item.name }}"
+      loop: "{{ composite_content_views }}"
+      register: cv_info
+
+    - name: display content view info
+      ansible.builtin.debug:
+        msg: "{{ cv_info }}"
+
+    - name: pulling fields
+      ansible.builtin.debug:
+        msg:
+          - "{{ cv_info['results']['content_view']['name'] }}"
+          # - "{{ cv_info['content_view']['last_published'] }}"
+          # - "{{ cv_info['content_view']['latest_version'] }}"
+          # - "{{ cv_info['content_view']['versions'] }}"
+
+...

@@ -1,0 +1,7 @@
+---
+server_url: "https://satellite.conocophillips.net/"
+username: aap_content_view
+password: "hKnV0nw=eF(OV67"
+organization: "ConocoPhillips"
+sat_validate_certs: false
+...

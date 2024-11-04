@@ -1,0 +1,22 @@
+---
+lc_environments:
+  - name: "Library"
+    id: 1
+    prior: "NA"
+
+  - name: "general_dev"
+    id: 3
+    prior: "Library"
+
+  - name: "general_test"
+    id: 4
+    prior: "general_dev"
+
+  - name: "general_prod"
+    id: 5
+    prior: "general_test"
+
+  - name: "infrastructure"
+    id: 15
+    prior: "Library"
+...

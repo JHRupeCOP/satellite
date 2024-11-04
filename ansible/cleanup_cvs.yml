@@ -1,0 +1,25 @@
+---
+- name: remove old content views and composite content views
+  hosts: localhost
+  become: false
+  gather_facts: false
+
+  # Note: variable: global_platform need to be set to dev or prd as an extra var
+  # to source the correct variable file
+
+  tasks:
+    - name: source variable file
+      ansible.builtin.include_vars:
+        dir: group_vars
+        files_matching: "{{ global_platform }}_.+[.]yml"
+
+    - name: publish regular content views
+      include_role:
+        name: redhat.satellite.content_view_version_cleanup
+      vars:
+        satellite_server_url: "{{ server_url }}"
+        satellite_username: "{{ username }}"
+        satellite_password: "{{ password }}"
+        satellite_organization: "{{ organization }}"
+        satellite_content_view_version_cleanup_keep: "{{ cv_version_count }}"
+...

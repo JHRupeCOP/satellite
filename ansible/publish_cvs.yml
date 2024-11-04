@@ -1,0 +1,37 @@
+---
+- name: Publish and promote regular content views
+  hosts: localhost
+  become: false
+  gather_facts: false
+
+  # Note: variable: global_platform need to be set to dev or prd as an extra var
+  # to source the correct variable file
+
+  tasks:
+    - name: source variable file
+      ansible.builtin.include_vars:
+        dir: group_vars
+        files_matching: "{{ global_platform }}_.+[.]yml"
+
+    - name: publish regular content views
+      redhat.satellite.content_view_version:
+        server_url: "{{ server_url }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "{{ sat_validate_certs }}"
+        organization: "{{ organization }}"
+        content_view: "{{ item.name }}"
+        description: "{{ item.description }}"
+        lifecycle_environments: "{{ item.environments }}"
+      loop: "{{ content_views }}"
+
+    - name: publish to the library
+      redhat.satellite.content_view_version:
+        server_url: "{{ server_url }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "{{ sat_validate_certs }}"
+        organization: "{{ organization }}"
+        content_view: "{{ item.name }}"
+      loop: "{{ composite_content_views }}"
+...

@@ -1,0 +1,76 @@
+---
+cv_version_count: "2"
+content_views:
+  - name: "COP_UTILS_CV"
+    description: "ConocoPhillips custom tools"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+      - "infrastructure"
+
+  - name: "EPEL_CV"
+    description: "Extra Packages for Enterprise Linux (EPEL)"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+      - "infrastructure"
+
+  - name: "Microsoft_Products_CV"
+    description: "Microsoft products all versions"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+      - "infrastructure"
+
+  - name: "RHEL8_CV"
+    description: "Red Hat Enterprise Linux (RHEL) version 8"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+      - "infrastructure"
+
+  - name: "RHEL9_CV"
+    description: "Red Hat Enterprise Linux (RHEL) version 9"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+
+  - name: "SatelliteCapsule_CV"
+    description: "Red Hat Satellite Capsule"
+    environments:
+      - "infrastructure"
+
+  - name: "Satellite_Client_CV"
+    description: "Red Hat Satellite client software"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+      - "infrastructure"
+
+composite_content_views:
+  - name: "RHEL8_CCV"
+    description: "Red Hat Enterprise Linux (RHEL) version 8 general purpose composite"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+
+  - name: "RHEL9_CCV"
+    description: "Red Hat Enterprise Linux (RHEL) version 9 general purpose composite"
+    environments:
+      - "general_dev"
+      - "general_test"
+      - "general_prod"
+
+  - name: "SatelliteCapsule_CCV"
+    description: "Satellite Capsule server composite"
+    environments:
+      - infrastructure"
+
+...

@@ -1,0 +1,17 @@
+---
+- name: variable fun!
+  hosts: localhost
+  become: false
+  gather_facts: false
+
+  tasks:
+    - name: source development variable file
+      ansible.builtin.include_vars:
+        dir: group_vars
+        files_matching: "{{ global_platform }}_.+[.]yml"
+
+    - name: lookup prior lifecycle
+      ansible.builtin.debug:
+        msg: "{{ server_url }}"
+
+...

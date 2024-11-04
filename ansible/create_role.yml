@@ -1,0 +1,38 @@
+---
+- name: create custom roles
+  hosts: localhost
+  become: false
+  gather_facts: false
+  vars_files:
+    - group_vars/dev_satellite.yml
+    - group_vars/dev_content_views.yml
+
+  tasks:
+    - name: crate role for CV publishing
+      redhat.satellite.role:
+        server_url: "{{ server_url }}"
+        username: "{{ username }}"
+        password: "{{ password }}"
+        validate_certs: "{{ sat_validate_certs }}"
+        organizations: "{{ organization }}"
+        state: present
+        name: "Content_View_Publish_Promote"
+        description: "Role used to publish and promote content views"
+        filters:
+          - permissions:
+              - view_organizations
+          - permissions:
+              - promote_or_remove_content_views_to_environments
+              - view_lifecycle_environments
+          - permissions:
+              - create_content_views
+              - destroy_content_views
+              - edit_content_views
+              - publish_content_views
+              - view_content_views
+              - promote_or_remove_content_views
+          - permissions:
+              - sync_sync_plans
+              - view_sync_plans
+
+...
